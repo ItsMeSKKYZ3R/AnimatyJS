@@ -54,7 +54,7 @@ Please ✰ this repository if this project helped you!
 
 ---
 
-You can download the js and css files [a link](https://animatyjs.skkyz3r.ml/AnimatyJS.js){:download="AnimatyJS-v-1.0.0 (JavaScript.js)} {:download="AnimatyJS-v-1.0.0 (JavaScript).js"}, [here](https://www.skkyz3r.ml/libraries/animatyjs) or [here](https://skkyz3r.ml/libraries/animatyjs)
+You can download the js and css files [a link](https://animatyjs.skkyz3r.ml/AnimatyJS.js)(download="AnimatyJS-v-1.0.0 (JavaScript).js")
 
 ---
 

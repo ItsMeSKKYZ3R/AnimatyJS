@@ -23,7 +23,7 @@ If you want to add a fadeIn animation, add the fadeIn function.
 
 Example:
 
-```
+```js
 var animaty = new AnimatyJS("css selector")
 animaty.fadeIn(doYouWant? (true or false))
 ```

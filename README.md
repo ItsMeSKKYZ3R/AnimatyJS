@@ -14,7 +14,7 @@ For make a rainbow animation, you need to specify if you want a rainbow, if you 
 
 Example:
 
-```
+```js
 var animaty = new AnimatyJS("css selector");
 animaty.rainbow(DoYouWantRainbow? (true or false), DoYouWantTheRainbowToBeInverse? (true or false), "css selector");
 ```
@@ -32,7 +32,7 @@ If you want to add a fadeOut animation, add the fadeIn function.
 
 Example:
 
-```
+```js
 var animaty = new AnimatyJS("css selector")
 animaty.fadeOut(doYouWant? (true or false))
 ```
@@ -41,7 +41,7 @@ If you want to know if the element is visible, use the isVisible function.
 
 Example:
 
-```
+```js
 var animaty = new AnimatyJS("css selector")
 animaty.isVisible("css selector");
 ```

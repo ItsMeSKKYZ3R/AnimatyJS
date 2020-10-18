@@ -42,7 +42,7 @@ If you want to know if the element is visible, use the isVisible function.
 Example:
 
 ```js
-var animaty = new AnimatyJS("css selector")
+var animaty = new AnimatyJS()
 animaty.isVisible("css selector");
 ```
 

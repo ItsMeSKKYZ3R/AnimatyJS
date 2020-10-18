@@ -54,7 +54,7 @@ Please ✰ this repository if this project helped you!
 
 ---
 
-You can download the js and css files [here](https://animatyjs.skkyz3r.ml)
+You can download the js and css files [here](https://animatyjs.skkyz3r.ml "Télécharger")
 
 ---
 

@@ -1,0 +1,130 @@
+.fadeIn {
+  animation-name: opacTo1;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+}
+
+.fadeOut {
+  animation-name: opacTo0;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+}
+
+.toTop {
+  animation-name: toTop;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+}
+
+.toBottom {
+  animation-name: toBottom;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+}
+
+.toRight {
+  animation-name: toRight;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+}
+
+.toLeft {
+  animation-name: toLeft;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+}
+
+.rainbow {
+  background: repeating-linear-gradient(-45deg, red 0%, yellow 7.14%, rgb(0, 255, 0) 14.28%, rgb(0, 255, 255) 21.4%, cyan 28.56%, blue 35.7%, magenta 42.84%, red 50%);
+  background-size: 600vw 600vw;
+  animation: animate 10s linear infinite forwards;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  font-family: sans-serif;
+}
+
+.rainbowReverse {
+  background: repeating-linear-gradient(-45deg, red 0%, yellow 7.14%, rgb(0, 255, 0) 14.28%, rgb(0, 255, 255) 21.4%, cyan 28.56%, blue 35.7%, magenta 42.84%, red 50%);
+  background-size: 600vw 600vw;
+  animation: animateReverse 10s linear infinite forwards;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  font-family: sans-serif;
+}
+
+@keyframes opacTo0 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+@keyframes opacTo1 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes toTop {
+  0% {
+    transform: translateY(0)
+  } 100% {
+    transform: translateY(100);
+  }
+}
+
+@keyframes toBottom {
+  0% {
+    transform: translateY(0)
+  } 100% {
+    transform: translateY(-100);
+  }
+}
+
+@keyframes toRight {
+  0% {
+    transform: translateX(0)
+  } 100% {
+    transform: translateX(100);
+  }
+}
+
+@keyframes toLeft {
+  0% {
+    transform: translateX(0)
+  } 100% {
+    transform: translateX(-100);
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: 100%;
+  } 100% {
+    background-position-x: 0%;
+  }
+}
+
+@keyframes animateReverse {
+  0% {
+    background-position-x: 0%;
+  } 100% {
+    background-position-x: 100%;
+  }
+}

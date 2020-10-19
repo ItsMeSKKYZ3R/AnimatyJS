@@ -10,15 +10,6 @@
 
 ## 📚 Documentation
 
-For make a rainbow animation, you need to specify if you want a rainbow, if you want the rainbow to be inverse and specify the css selector.
-
-Example:
-
-```js
-var animaty = new AnimatyJS("css selector");
-animaty.rainbow(DoYouWantRainbow? (true or false), DoYouWantTheRainbowToBeInverse? (true or false), "css selector");
-```
-
 If you want to add a fadeIn animation, add the fadeIn function.
 
 Example:

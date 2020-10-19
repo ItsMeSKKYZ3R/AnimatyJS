@@ -40,10 +40,12 @@
   animation-delay: 0s;
 }
 
-.rainbow {
+/*.rainbow {
   background: repeating-linear-gradient(-45deg, red 0%, yellow 7.14%, rgb(0, 255, 0) 14.28%, rgb(0, 255, 255) 21.4%, cyan 28.56%, blue 35.7%, magenta 42.84%, red 50%);
   background-size: 600vw 600vw;
-  animation: animate 10s linear infinite forwards;
+  animation-name: animate;
+  animation-duration:  10s;
+  animation-timing-function: linear;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -60,7 +62,7 @@
   -webkit-background-clip: text;
   -moz-background-clip: text;
   font-family: sans-serif;
-}
+}*/
 
 @keyframes opacTo0 {
   0% {
@@ -113,7 +115,7 @@
   }
 }
 
-@keyframes animate {
+/*@keyframes animate {
   0% {
     background-position-x: 100%;
   } 100% {
@@ -127,4 +129,4 @@
   } 100% {
     background-position-x: 100%;
   }
-}
+}*/

@@ -1,4 +1,4 @@
-## ✨ AnimatyJS v1.0
+## ✨ AnimatyJS v1.1
 
 #### AnimatyJS is a JavaScript library made by Xevaltan#7394 and SKKYZ3R#8408
 
@@ -8,6 +8,10 @@
 -   You can make your text to rainbow.
 -   You can see if your text is visible actually
 
+## 🚀 v1.1
+
+### On this new version of AnimatyJS, we deprecated the rainbow function 'cause it was bugged. We're actually working on it, and we'll let you know when this function returns! Another updated function, fadeIn and fadeout functions no longer needs specifying if you want to apply the effect.
+
 ## 📚 Documentation
 
 If you want to add a fadeIn animation, add the fadeIn function.
@@ -16,7 +20,7 @@ Example:
 
 ```js
 var animaty = new AnimatyJS("css selector")
-animaty.fadeIn(doYouWant? (true or false))
+animaty.fadeIn()
 ```
 
 If you want to add a fadeOut animation, add the fadeIn function.

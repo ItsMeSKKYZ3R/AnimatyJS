@@ -5,7 +5,7 @@
 ## 🚀 Features
 
 -   You can add some animation with fade on in and out.
--   You can make your text to rainbow.
+-   You can make your text to rainbow. :x:
 -   You can see if your text is visible actually
 
 ## 🚀 v1.1

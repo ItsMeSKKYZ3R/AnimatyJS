@@ -133,20 +133,24 @@ class AnimatyJS {
   }
 
   /**
-   * @param {string} selector - The element
-   * @param {boolean} rainbow - Do you want a rainbow?
-   * @param {boolean} reverse - Is the rainbow reverse?
+   * @deprecated Since v1.1! We're working on and we'll let you know when this feature is back.
    */
 
-  rainbow(rainbow, reverse, selector) {
-    document.querySelectorAll(selector).forEach((el) => {
-      if (rainbow && reverse) {
-        el.classList.add("rainbowReverse");
-      } else if (rainbow && !reverse) {
-        el.classList.add("rainbow");
-      } else if (!rainbow && reverse) {
-        alert("Vous ne pouvez pas inverser un effet non selectionné !");
-      }
-    });
+  rainbow(reverse) {
+    // this.els.forEach((el) => {
+    //   if (reverse) {
+    //     setTimeout(() => {
+    //       el.classList.add("rainbowReverse");
+    //     }, 2000);
+    //   } else {
+    //     setTimeout(() => {
+    //       el.classList.add("rainbow");
+    //     }, 500);
+    //   }
+    // });
+
+    console.error("The rainbow function is deprecated since the v1.1");
+
+    return this;
   }
 }

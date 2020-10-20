@@ -1,4 +1,4 @@
-## ✨ AnimatyJS v1.2.5
+## ✨ AnimatyJS v1.3
 
 #### AnimatyJS is a JavaScript library made by Xevaltan#7394 and SKKYZ3R#8408
 

@@ -84,7 +84,11 @@ class AnimatyJS {
       this.els.forEach((el) => {
         el.addEventListener("click", callback);
       });
+    } else {
+      console.error("The callback need to be a function");
     }
+
+    return this;
   }
 
   /**
@@ -97,6 +101,76 @@ class AnimatyJS {
       this.els.forEach((el) => {
         el.addEventListener("dblclick", callback);
       });
+    } else {
+      console.error("The callback need to be a function");
+    }
+
+    return this;
+  }
+
+  hover(callback) {
+    if (typeof callback === "function") {
+      this.els.forEach((el) => {
+        el.addEventListener("mouseover", callback);
+      });
+    } else {
+      console.error("The callback need to be a function");
+    }
+
+    return this;
+  }
+
+  mouseEnter(callback) {
+    if (typeof callback === "function") {
+      this.els.forEach((el) => {
+        el.addEventListener("mouseenter", callback);
+      });
+    } else {
+      console.error("The callback need to be a function");
+    }
+
+    return this;
+  }
+
+  mouseOut(callback) {
+    if (typeof callback === "function") {
+      this.els.forEach((el) => {
+        el.addEventListener("mouseout", callback);
+      });
+    } else {
+      console.error("The callback need to be a function");
+    }
+
+    return this;
+  }
+
+  /**
+   * @param {string} color The color
+   */
+
+  setColor(color) {
+    if (color) {
+      if (typeof color === "string") {
+        this.els.forEach((el) => {
+          el.style.color = color;
+        });
+      } else {
+        console.error("The color need to be a string");
+      }
+    } else {
+      console.error("You need to specify a color");
+    }
+
+    return this;
+  }
+
+  toggleColor(first, second) {
+    if (typeof first === "string" && typeof second === "string") {
+      this.els.forEach((el) => {
+        el.style.color = el.style.color === first ? second : first;
+      });
+    } else {
+      console.error("Nope");
     }
   }
 }

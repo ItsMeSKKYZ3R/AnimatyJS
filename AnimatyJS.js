@@ -7,103 +7,23 @@ class AnimatyJS {
     this.els = document.querySelectorAll(selector);
   }
 
-  /**
-   * @param {boolean} fade - Do you want a fade in?
-   */
-
-  fadeIn(fade) {
-    if (fade) {
-      this.els.forEach((el) => {
-        el.classList.add("fadeIn");
-      });
-    } else {
-      return null;
-    }
+  fadeIn() {
+    this.els.forEach((el) => {
+      el.classList.add("fadeIn");
+    });
 
     return this;
   }
 
-  /**
-   * @param {boolean} fade - Do you want a fade out?
-   */
-
-  fadeOut(fade) {
-    if (fade) {
-      this.els.forEach((el) => {
-        el.classList.add("fadeOut");
-      });
-    } else {
-      return null;
-    }
+  fadeOut() {
+    this.els.forEach((el) => {
+      el.classList.add("fadeOut");
+    });
 
     return this;
   }
 
-  /**
-   * @param {boolean} fade - Do you want a fade direction to up?
-   */
-
-  toUp(fade) {
-    if (fade) {
-      this.els.forEach((el) => {
-        el.classList.add("toUp");
-      });
-    } else {
-      return null;
-    }
-
-    return this;
-  }
-
-  /**
-   * @param {boolean} fade - Do you want a fade direction to bootom?
-   */
-
-  toBottom(fade) {
-    if (fade) {
-      this.els.forEach((el) => {
-        el.classList.add("toBottom");
-      });
-    } else {
-      return null;
-    }
-
-    return this;
-  }
-
-  /**
-   * @param {boolean} fade - Do you want a fade direction to left?
-   */
-
-  toLeft(fade) {
-    if (fade) {
-      this.els.forEach((el) => {
-        el.classList.add("toLeft");
-      });
-    } else {
-      return null;
-    }
-
-    return this;
-  }
-
-  /**
-   * @param {boolean} fade - Do you want a fade direction to right?
-   */
-
-  toRight(fade) {
-    if (fade) {
-      this.els.forEach((el) => {
-        el.classList.add("toRight");
-      });
-    } else {
-      return null;
-    }
-
-    return this;
-  }
-
-  isVisible(ratio, element) {
+  isVisible(ratio) {
     const rate = ratio;
     const options = {
       root: null,
@@ -125,7 +45,7 @@ class AnimatyJS {
 
     const observer = new IntersectionObserver(handleIntersect, options);
 
-    document.querySelectorAll(element).forEach((r) => {
+    this.els.forEach((r) => {
       observer.observe(r);
     });
 
@@ -136,7 +56,7 @@ class AnimatyJS {
    * @deprecated Since v1.1! We're working on and we'll let you know when this feature is back.
    */
 
-  rainbow(reverse) {
+  rainbow() {
     // this.els.forEach((el) => {
     //   if (reverse) {
     //     setTimeout(() => {
@@ -153,4 +73,34 @@ class AnimatyJS {
 
     return this;
   }
+
+  /**
+   *
+   * @param {function} callback The action when the element is clicked
+   */
+
+  click(callback) {
+    if (typeof callback === "function") {
+      this.els.forEach((el) => {
+        el.addEventListener("click", callback);
+      });
+    }
+  }
+
+  /**
+   *
+   * @param {function} callback The action when the element is double clicked
+   */
+
+  dblclick(callback) {
+    if (typeof callback === "function") {
+      this.els.forEach((el) => {
+        el.addEventListener("dblclick", callback);
+      });
+    }
+  }
+}
+
+function _(element) {
+  return new AnimatyJS(element);
 }

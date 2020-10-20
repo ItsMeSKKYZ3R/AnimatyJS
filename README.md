@@ -7,13 +7,13 @@
 -   You can add some animation with fade on in and out.
 -   You can see if your text is visible actually
 
-## 🚀 v1.1
-
-### On this new version of AnimatyJS, we deprecated the rainbow function 'cause it was bugged. We're actually working on it, and we'll let you know when this function returns! Another updated function, fadeIn and fadeout functions no longer needs specifying if you want to apply the effect.
-
 ## 🚀 v1.2.5
 
 ### We added the click and double click functions and the _ function for replace the new instance of AnimatyJS (but you can do like before).
+
+## 🚀 v1.1
+
+### On this new version of AnimatyJS, we deprecated the rainbow function 'cause it was bugged. We're actually working on it, and we'll let you know when this function returns! Another updated function, fadeIn and fadeout functions no longer needs specifying if you want to apply the effect.
 
 ## 📚 Documentation
 

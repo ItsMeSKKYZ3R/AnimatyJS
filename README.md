@@ -7,6 +7,10 @@
 -   You can add some animation with fade on in and out.
 -   You can see if your text is visible actually
 
+## 🚀 v1.3
+
+### For the v1.3, we added the setColor and toggleColor functions. These functions need to be a callback of hover or click function.
+
 ## 🚀 v1.2.5
 
 ### We added the click and double click functions and the _ function for replace the new instance of AnimatyJS (but you can do like before).

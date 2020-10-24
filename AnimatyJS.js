@@ -9,7 +9,18 @@ class AnimatyJS {
 
   fadeIn() {
     this.els.forEach((el) => {
-      el.classList.add("fadeIn");
+      let opacity = 0;
+
+      while (true) {
+        setTimeout(() => {
+          opacity++;
+          console.log(opacity);
+        }, 50);
+
+        if (opacity === 10) {
+          break;
+        }
+      }
     });
 
     return this;
@@ -164,6 +175,11 @@ class AnimatyJS {
     return this;
   }
 
+  /**
+   * @param {string} first First color
+   * @param {string} second Second color
+   */
+
   toggleColor(first, second) {
     if (typeof first === "string" && typeof second === "string") {
       this.els.forEach((el) => {
@@ -172,9 +188,140 @@ class AnimatyJS {
     } else {
       console.error("Nope");
     }
+
+    return this;
+  }
+
+  /**
+   * @param {number} degree How much degree do you want the element rotate?
+   */
+
+  spin(degree) {
+    if (typeof degree === "number") {
+      this.els.forEach((el) => {
+        el.style.transform = `rotate(${degree}deg)`;
+      });
+    }
+
+    return this;
+  }
+
+  /**
+   * @param {string} Class The class
+   */
+
+  addClass(Class) {
+    this.els.forEach((el) => {
+      if (Class) {
+        if (typeof Class === "string") {
+          el.classList.add(Class);
+        } else {
+          console.error("The class need to be a string!");
+        }
+      } else {
+        console.error("You need to specify the class");
+      }
+    });
+
+    return this;
+  }
+
+  /**
+   * @param {string} Class The class
+   */
+
+  removeClass(Class) {
+    this.els.forEach((el) => {
+      if (Class) {
+        if (typeof Class === "string") {
+          el.classList.remove(Class);
+        } else {
+          console.error("The class need to be a string!");
+        }
+      } else {
+        console.error("You need to specify the class");
+      }
+    });
+
+    return this;
+  }
+
+  /**
+   * @param {string} Class The class
+   */
+
+  toggleClass(Class) {
+    this.els.forEach((el) => {
+      if (Class) {
+        if (typeof Class === "string") {
+          el.classList.toggle(Class);
+        } else {
+          console.error("The class need to be a string!");
+        }
+      } else {
+        console.error("You need to specify the class");
+      }
+    });
+
+    return this;
+  }
+
+  /**
+   * @param {string} cursor What cursor do you want?
+   */
+
+  cursor(cursor) {
+    if (cursor) {
+      if (typeof cursor === "string") {
+        this.els.forEach((el) => {
+          el.style.cursor = cursor;
+        });
+      } else {
+        console.error("The cursor name need to be a string");
+      }
+    } else {
+      console.error("You need to specify a cursor name");
+    }
+
+    return this;
+  }
+
+  fadeWhenVisible(ratio) {
+    const rate = ratio;
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: rate,
+    };
+
+    const handleIntersect = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio > rate) {
+          this.fadeIn();
+          return true;
+        } else {
+          this.els.forEach((el) => {
+            el.classList.remove("fadeIn");
+          });
+          return false;
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, options);
+
+    this.els.forEach((r) => {
+      observer.observe(r);
+    });
+
+    return this;
   }
 }
 
-function _(element) {
-  return new AnimatyJS(element);
+/**
+ * @param {String} selector
+ */
+
+function _(selector) {
+  return new AnimatyJS(selector);
 }

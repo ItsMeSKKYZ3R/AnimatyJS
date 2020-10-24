@@ -80,4 +80,4 @@ You can download the js and css files [here](https://animatyjs.skkyz3r.ml "Tél�
 
 ---
 
-_Made with_ ❤ _by [SKKYZ3R](https://www.skkyz3r.ml/v1){:target="_blank"} and Xevaltan_
+_Made with_ ❤ _by [SKKYZ3R](https://www.skkyz3r.ml/v1) and Xevaltan_

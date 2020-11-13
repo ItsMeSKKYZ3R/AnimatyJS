@@ -9,7 +9,7 @@
 
 ## 🚀 1.4.2
 
-### In this version we deprecated the fadeIn and fadeOut functions for patch the crash when the functions are executed. But, we added two functions, the css and html functions. The library is now available on npmjs! For add with npm, you need to execute the **npm install animatyjs --save** command in your terminal.
+### In this version we deprecated the fadeIn and fadeOut functions for patch the crash when the functions are executed. But, we added two functions, the css and html functions. The library is now available on npmjs! For add with npm, you need to execute the `npm install animatyjs --save` command in your terminal.
 
 ## 🚀 v1.3
 

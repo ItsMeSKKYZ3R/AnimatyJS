@@ -78,19 +78,19 @@ _("selector").dblclick(/*function callback*/ () => {
 
 ## How to use the css function?
 
-# For use this function, it's very simple. You need to call the function
+### For use this function, it's very simple. You need to call the function
 
 ```js
 _("css selector").css()
 ```
 
-# and add an object into.
+### and add an object into.
 
 ```js
 _("css selector").css({})
 ```
 
-# In this object you need to specify the css attribute first then his value.
+### In this object you need to specify the css attribute first then his value.
 
 ```js
 _("css selector").css({
@@ -99,9 +99,9 @@ _("css selector").css({
 })
 ```
 
-# You can see that we have not put quotes in color. It's normal! One-word arguments don't really need it. But arguments of more than two words (separated by a dash) must be surrounded by quotes.
+### You can see that we have not put quotes in color. It's normal! One-word arguments don't really need it. But arguments of more than two words (separated by a dash) must be surrounded by quotes.
 
-# You can add as many items as you want.
+### You can add as many items as you want.
 
 ## 🤝 Contributing
 

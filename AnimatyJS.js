@@ -7,18 +7,19 @@ class AnimatyJS {
     this.els = document.querySelectorAll(selector);
   }
 
-  fadeIn() {
+  async fadeIn() {
     this.els.forEach((el) => {
-      let opacity = 0;
+      el.style.opacity = 0;
+      setInterval(show, 50);
 
-      while (true) {
-        setTimeout(() => {
-          opacity++;
-          console.log(opacity);
-        }, 50);
+      function show() {
+        let opacity = Number(
+          window.getComputedStyle(el).getPropertyValue("opacity")
+        );
 
-        if (opacity === 10) {
-          break;
+        if (opacity < 1) {
+          opacity += 0.1;
+          el.style.opacity = opacity;
         }
       }
     });
@@ -26,16 +27,28 @@ class AnimatyJS {
     return this;
   }
 
-  fadeOut() {
+  async fadeOut() {
     this.els.forEach((el) => {
-      el.classList.add("fadeOut");
+      el.style.opacity = 1;
+      setInterval(hide, 50);
+
+      function hide() {
+        let opacity = Number(
+          window.getComputedStyle(el).getPropertyValue("opacity")
+        );
+
+        if (opacity > 0) {
+          opacity -= 0.1;
+          el.style.opacity = opacity;
+        }
+      }
     });
 
     return this;
   }
 
-  isVisible(ratio) {
-    const rate = ratio;
+  async isVisible() {
+    const rate = 0.1;
     const options = {
       root: null,
       rootMargin: "0px",
@@ -64,22 +77,10 @@ class AnimatyJS {
   }
 
   /**
-   * @deprecated Since v1.1! We're working on and we'll let you know when this feature is back.
+   * @deprecated Since v1.1! We want to add AnimatyJS on npm and this function need a CSS file.
    */
 
-  rainbow() {
-    // this.els.forEach((el) => {
-    //   if (reverse) {
-    //     setTimeout(() => {
-    //       el.classList.add("rainbowReverse");
-    //     }, 2000);
-    //   } else {
-    //     setTimeout(() => {
-    //       el.classList.add("rainbow");
-    //     }, 500);
-    //   }
-    // });
-
+  async rainbow() {
     console.error("The rainbow function is deprecated since the v1.1");
 
     return this;
@@ -90,7 +91,7 @@ class AnimatyJS {
    * @param {function} callback The action when the element is clicked
    */
 
-  click(callback) {
+  async click(callback) {
     if (typeof callback === "function") {
       this.els.forEach((el) => {
         el.addEventListener("click", callback);
@@ -107,7 +108,7 @@ class AnimatyJS {
    * @param {function} callback The action when the element is double clicked
    */
 
-  dblclick(callback) {
+  async dblclick(callback) {
     if (typeof callback === "function") {
       this.els.forEach((el) => {
         el.addEventListener("dblclick", callback);
@@ -119,7 +120,7 @@ class AnimatyJS {
     return this;
   }
 
-  hover(callback) {
+  async hover(callback) {
     if (typeof callback === "function") {
       this.els.forEach((el) => {
         el.addEventListener("mouseover", callback);
@@ -131,7 +132,7 @@ class AnimatyJS {
     return this;
   }
 
-  mouseEnter(callback) {
+  async mouseEnter(callback) {
     if (typeof callback === "function") {
       this.els.forEach((el) => {
         el.addEventListener("mouseenter", callback);
@@ -143,7 +144,7 @@ class AnimatyJS {
     return this;
   }
 
-  mouseOut(callback) {
+  async mouseOut(callback) {
     if (typeof callback === "function") {
       this.els.forEach((el) => {
         el.addEventListener("mouseout", callback);
@@ -159,7 +160,7 @@ class AnimatyJS {
    * @param {string} color The color
    */
 
-  setColor(color) {
+  async setColor(color) {
     if (color) {
       if (typeof color === "string") {
         this.els.forEach((el) => {
@@ -180,7 +181,7 @@ class AnimatyJS {
    * @param {string} second Second color
    */
 
-  toggleColor(first, second) {
+  async toggleColor(first, second) {
     if (typeof first === "string" && typeof second === "string") {
       this.els.forEach((el) => {
         el.style.color = el.style.color === first ? second : first;
@@ -193,24 +194,10 @@ class AnimatyJS {
   }
 
   /**
-   * @param {number} degree How much degree do you want the element rotate?
-   */
-
-  spin(degree) {
-    if (typeof degree === "number") {
-      this.els.forEach((el) => {
-        el.style.transform = `rotate(${degree}deg)`;
-      });
-    }
-
-    return this;
-  }
-
-  /**
    * @param {string} Class The class
    */
 
-  addClass(Class) {
+  async addClass(Class) {
     this.els.forEach((el) => {
       if (Class) {
         if (typeof Class === "string") {
@@ -230,7 +217,7 @@ class AnimatyJS {
    * @param {string} Class The class
    */
 
-  removeClass(Class) {
+  async removeClass(Class) {
     this.els.forEach((el) => {
       if (Class) {
         if (typeof Class === "string") {
@@ -250,7 +237,7 @@ class AnimatyJS {
    * @param {string} Class The class
    */
 
-  toggleClass(Class) {
+  async toggleClass(Class) {
     this.els.forEach((el) => {
       if (Class) {
         if (typeof Class === "string") {
@@ -270,7 +257,7 @@ class AnimatyJS {
    * @param {string} cursor What cursor do you want?
    */
 
-  cursor(cursor) {
+  async cursor(cursor) {
     if (cursor) {
       if (typeof cursor === "string") {
         this.els.forEach((el) => {
@@ -286,8 +273,8 @@ class AnimatyJS {
     return this;
   }
 
-  fadeWhenVisible(ratio) {
-    const rate = ratio;
+  async fadeWhenVisible() {
+    const rate = 0.1;
     const options = {
       root: null,
       rootMargin: "0px",
@@ -298,11 +285,13 @@ class AnimatyJS {
       entries.forEach((entry) => {
         if (entry.intersectionRatio > rate) {
           this.fadeIn();
+
           return true;
         } else {
           this.els.forEach((el) => {
-            el.classList.remove("fadeIn");
+            this.fadeOut();
           });
+
           return false;
         }
       });
@@ -316,6 +305,84 @@ class AnimatyJS {
 
     return this;
   }
+
+  /**
+   *
+   * @param {Object} styles - All of styles you want in object!
+   */
+
+  async css(styles) {
+    this.els.forEach((el) => {
+      for (let ite in styles) {
+        var value = styles[ite];
+
+        el.style[ite] = value;
+      }
+    });
+
+    return this;
+  }
+
+  /**
+   *
+   * @param {string} text Your text.
+   */
+
+  async html(text) {
+    this.els.forEach((el) => {
+      el.innerHTML = text;
+    });
+
+    return this;
+  }
+
+  async show() {
+    this.els.forEach((el) => {
+      el.style.opacity = 0;
+      setInterval(show, 50);
+
+      function show() {
+        let opacity = Number(
+          window.getComputedStyle(el).getPropertyValue("opacity")
+        );
+
+        if (opacity < 1) {
+          opacity += 0.1;
+          el.style.opacity = opacity;
+        }
+      }
+    });
+
+    return this;
+  }
+
+  async hide() {
+    this.els.forEach((el) => {
+      el.style.opacity = 1;
+      setInterval(hide, 50);
+
+      function hide() {
+        let opacity = Number(
+          window.getComputedStyle(el).getPropertyValue("opacity")
+        );
+
+        if (opacity > 0) {
+          opacity -= 0.1;
+          el.style.opacity = opacity;
+        }
+      }
+    });
+
+    return this;
+  }
+
+  async getScrollX() {
+    return this.scrollX;
+  }
+
+  async getScrollY() {
+    return this.scrollY;
+  }
 }
 
 /**
@@ -325,3 +392,101 @@ class AnimatyJS {
 function _(selector) {
   return new AnimatyJS(selector);
 }
+
+/**
+ * Scroll the body to x and y coords
+ * @param {Number} x The x coord
+ * @param {Number} y The y coord
+ */
+
+async function goTo(x, y) {
+  if (typeof x === "number" && typeof y === "number") {
+    window.scroll(x, y);
+  } else if (typeof x !== "number" && typeof y !== "number") {
+    return console.error("The x and y args must be numbers.");
+  } else if (typeof x !== "number" && typeof y === "number") {
+    return console.error("The x arg must be a number.");
+  } else if (typeof x === "number" && typeof y !== "number") {
+    return console.error("The y arg must be a number.");
+  }
+}
+
+/**
+ *
+ * @param {Function} callback The callback
+ */
+
+async function keypress(callback) {
+  if (typeof callback === "function") {
+    this.els.forEach((el) => {
+      el.addEventListener("keypress", callback);
+    });
+  } else {
+    console.error("The callback need to be a function");
+  }
+
+  return this;
+}
+
+/**
+ *
+ * @param {Function} callback The callback
+ */
+
+async function keydown(callback) {
+  if (typeof callback === "function") {
+    this.els.forEach((el) => {
+      el.addEventListener("keydown", callback);
+    });
+  } else {
+    console.error("The callback need to be a function");
+  }
+
+  return this;
+}
+
+/**
+ *
+ * @param {Function} callback The callback
+ */
+
+async function keyup(callback) {
+  if (typeof callback === "function") {
+    this.els.forEach((el) => {
+      el.addEventListener("keyup", callback);
+    });
+  } else {
+    console.error("The callback need to be a function");
+  }
+
+  return this;
+}
+
+/**
+ * Scroll the body to x and y coords
+ * @param {Number} x The x coord
+ * @param {Number} y The y coord
+ */
+
+_.goTo = (x, y) => goTo(x, y);
+
+/**
+ *
+ * @param {Function} callback The callback
+ */
+
+_.keypress = (callback) => keypress(callback);
+
+/**
+ *
+ * @param {Function} callback The callback
+ */
+
+_.keyup = (callback) => keyup(callback);
+
+/**
+ *
+ * @param {Function} callback The callback
+ */
+
+_.keydown = (callback) => keydown(callback);
